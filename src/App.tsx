@@ -101,10 +101,10 @@ const App: React.FC = () => {
     let pickList: any = [];
     let index: any = '';
     let currentList: any = localStorage.getItem('users');
-    let json = JSON.parse(currentList||'[]');
+    let json = JSON.parse(currentList);
     let lastPick: any = localStorage.getItem('lastPick');
     console.log(lastPick);
-    let jsonLastPick = JSON.parse(lastPick||null);
+    let jsonLastPick = JSON.parse(lastPick);
     if (lastPick != null) {
       console.log(json.indexOf(jsonLastPick.name));
       for (var i = 0; i < json.length; i++) {
@@ -116,7 +116,7 @@ const App: React.FC = () => {
     }
     else {
       pickList = currentList;
-      json = JSON.parse(pickList ||'[]');
+      json = JSON.parse(pickList);
     }
     console.log(json);
     let r: any = json[Math.floor(Math.random() * json.length)];
@@ -136,7 +136,7 @@ const App: React.FC = () => {
     let index: any = null;
     if((newUser != null) && (newUser != '')){
     let currentList: any = localStorage.getItem('users');
-    let json = JSON.parse(currentList  ||'[]');
+    let json = JSON.parse(currentList);
     console.log(json.length);
     if(json.length != 0){
     for (var i = 0; i < json.length; i++) {
@@ -170,7 +170,7 @@ const App: React.FC = () => {
   const removeUser = (name:any) => {
     let index: any = '';
     let currentList: any = localStorage.getItem('users');
-    let json = JSON.parse(currentList ||'[]');
+    let json = JSON.parse(currentList);
     for (var i = 0; i < json.length; i++) {
       if (json[i].name === name) {
         index = i;
@@ -184,7 +184,7 @@ const App: React.FC = () => {
     console.log(json);
   }
   
-  users = JSON.parse(localStorage.getItem('users') || '[]');
+  users = JSON.parse(localStorage.getItem('users') || '{}');
    console.log(users.length);
    React.useEffect(() => {
     if (users.length > 1) {
